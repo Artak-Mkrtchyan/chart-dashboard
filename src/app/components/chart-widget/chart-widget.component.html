@@ -1,0 +1,15 @@
+<div class="chart-container">
+  <div class="chart-header">
+    <h2>{{ title() }}</h2>
+
+    <button mat-icon-button (click)="remove.emit(index())">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+
+  <highcharts-chart
+    class="chart"
+    [Highcharts]="Highcharts"
+    [options]="chartOptions()"
+  ></highcharts-chart>
+</div>

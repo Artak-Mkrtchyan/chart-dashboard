@@ -1,0 +1,46 @@
+<mat-card class="chart-form-container" appearance="outlined">
+  <form
+    class="chart-form"
+    [formGroup]="chartForm"
+    (submit)="onSubmit(formDirective)"
+    #formDirective="ngForm"
+  >
+    <mat-form-field>
+      <mat-label>Chart Name</mat-label>
+      <input matInput formControlName="name" placeholder="Chart Name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Sensors</mat-label>
+      <mat-select multiple formControlName="sensors">
+        @for (sensor of sensors(); track sensor.id) {
+        <mat-option [value]="sensor.id">{{ sensor.name }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Chart Type</mat-label>
+      <mat-select formControlName="type">
+        @for (option of chartTypeOptions; track $index) {
+        <mat-option [value]="option">{{ option }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Line Color</mat-label>
+      <input type="color" matInput formControlName="color" />
+    </mat-form-field>
+
+    <button
+      mat-flat-button
+      appDisabledButton
+      [isViewerDisabled]="creationDisabled()"
+      [viewerTooltip]="creationDisabledTooltip()"
+      matTooltip
+    >
+      Create Chart
+    </button>
+  </form>
+</mat-card>

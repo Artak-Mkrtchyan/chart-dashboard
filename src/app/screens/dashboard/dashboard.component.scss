@@ -1,0 +1,27 @@
+.dashboard {
+  @apply flex flex-col w-full h-full;
+
+  &-header {
+    @apply flex flex-col items-center w-full p-4;
+  }
+
+  &-header-title {
+    @apply text-2xl font-bold mb-4;
+  }
+
+  &-body {
+    @apply flex flex-row justify-between w-full;
+  }
+
+  &-charts {
+    @apply flex flex-col w-3/4 h-full mr-5 mb-4;
+
+    & > * {
+      @apply mb-4;
+    }
+  }
+
+  &-form {
+    @apply flex flex-col w-1/4 h-full;
+  }
+}

@@ -1,0 +1,10 @@
+.chart-form-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    max-width: 400px;
+}
+
+.chart-form {
+    @apply flex flex-col w-full;
+}

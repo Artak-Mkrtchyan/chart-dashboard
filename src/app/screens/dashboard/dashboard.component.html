@@ -1,0 +1,34 @@
+<div class="dashboard">
+  <div class="dashboard-header">
+    <h1 class="dashboard-header-title">Dashboard</h1>
+
+    <app-date-interval-picker
+      (dateChange)="updateDateRange($event)"
+    ></app-date-interval-picker>
+  </div>
+
+  <div class="dashboard-body">
+    <div class="dashboard-form">
+      <app-chart-form
+        [sensors]="dataService.sensors()"
+        [creationDisabled]="chartWidgets().length > 3"
+        creationDisabledTooltip="You can only have 4 charts at a time"
+        (formChange)="addChartWidget($event)"
+      ></app-chart-form>
+    </div>
+
+    <div class="dashboard-charts">
+      @for (item of chartWidgets(); let i = $index; track i) {
+      <app-chart-widget
+        [index]="i"
+        [title]="item.name"
+        [chartType]="item.type"
+        [data]="item.data"
+        [lineColor]="item.color"
+        [dateRange]="dateRange()"
+        (remove)="removeChartWidget($event)"
+      ></app-chart-widget>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<form [formGroup]="form">
+  <mat-form-field class="mr-3">
+    <mat-label>Choose a start date</mat-label>
+    <input formControlName="startDate" matInput [matDatepicker]="startDate" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle
+      matIconSuffix
+      [for]="startDate"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #startDate></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Choose a end date</mat-label>
+    <input formControlName="endDate" matInput [matDatepicker]="endDate" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle
+      matIconSuffix
+      [for]="endDate"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #endDate></mat-datepicker>
+  </mat-form-field>
+</form>
