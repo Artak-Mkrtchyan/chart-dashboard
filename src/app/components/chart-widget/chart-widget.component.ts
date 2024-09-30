@@ -13,6 +13,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ChartData, ChartType } from './types';
+import { getChartOptions } from './utils';
 
 @Component({
   selector: 'app-chart-widget',
@@ -48,25 +49,7 @@ export class ChartWidgetComponent {
     return this.data();
   });
 
-  chartOptions = computed<Highcharts.Options>(() => ({
-    title: {
-      text: '',
-    },
-    colors: [this.lineColor()],
-    chart: {
-      type: this.chartType(),
-    },
-    xAxis: {
-      type: 'datetime',
-      title: {
-        text: 'Date',
-      },
-    },
-    yAxis: {
-      title: {
-        text: 'Value',
-      },
-    },
-    series: this.filteredData() as Highcharts.SeriesOptionsType[],
-  }));
+  chartOptions = computed<Highcharts.Options>(() =>
+    getChartOptions(this.filteredData(), this.lineColor(), this.chartType())
+  );
 }

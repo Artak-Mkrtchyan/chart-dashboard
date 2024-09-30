@@ -8,9 +8,9 @@ import { ChartWidgetComponent } from '@app/components/chart-widget/chart-widget.
 import { DataService } from '@app/services/data.service';
 import { ChartFormComponent } from '@app/components/chart-form/chart-form.component';
 import { DateIntervalPickerComponent } from '@app/components/date-interval-picker/date-interval-picker.component';
-import { ChartData, ChartType } from '@app/components/chart-widget/types';
 import { ChartFormData } from '@app/components/chart-form/types';
 import { DashboardChartWidget } from './types';
+import { ChartWidgetDirective } from '@app/components/chart-widget/chart-widget.directive';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,6 +19,7 @@ import { DashboardChartWidget } from './types';
     ChartWidgetComponent,
     ChartFormComponent,
     DateIntervalPickerComponent,
+    ChartWidgetDirective,
   ],
   providers: [DataService],
   changeDetection: ChangeDetectionStrategy.OnPush,
